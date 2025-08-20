@@ -1,0 +1,37 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    hostname: mysql
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: blog_db
+#    volumes:
+#      - ./mysqldata:/var/lib/mysql/
+#      - ./initsql:/docker-entrypoint-initdb.d/
+#      - ./etc-mysql/my.cnf:/etc/my.cnf
+    ports:
+      - "3306:3306"
+  es:
+    image: elasticsearch:8.17.0
+    container_name: es
+    hostname: es
+    restart: always
+    environment:
+      discovery.type: single-node
+      xpack.security.http.ssl.enabled: false
+      xpack.license.self_generated.type: trial
+      xpack.security.enabled: false
+      ES_JAVA_OPTS: "-Xms84m -Xmx512m"
+    ports:
+      - "9200:9200"
+  redis:
+    image: redis
+    container_name: redis
+    hostname: redis
+    restart: always
+    ports:
+      - "6379:6379"
