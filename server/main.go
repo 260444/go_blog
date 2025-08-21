@@ -2,6 +2,7 @@ package main
 
 import (
 	"server/core"
+	"server/flag"
 	"server/global"
 	"server/initialize"
 )
@@ -17,6 +18,6 @@ func main() {
 	defer global.Redis.Close()
 
 	initialize.InitCron()
-
+	flag.Execute()
 	core.RunServer()
 }
