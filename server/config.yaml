@@ -20,8 +20,8 @@ gaode:
   enable: false
   key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 jwt:
-  access_token_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  refresh_token_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  access_token_secret: VV4hSjGbVPbIM_hbET6IxRLHhMQe_TFGhmM4lwC-x7c=
+  refresh_token_secret: BJVYrJu1XHlcTnju0vP21RDlpnqjNpDevr7avyw_H2M=
   access_token_expiry_time: 2h
   refresh_token_expiry_time: 7d
   issuer: go_blog
@@ -55,7 +55,8 @@ redis:
 system:
   host: 0.0.0.0
   port: 8080
-  env: release
+#  env: release
+  env: debug
   router_prefix: api
   use_multipoint: true
   sessions_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
