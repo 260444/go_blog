@@ -38,9 +38,9 @@ func MySQLPagination[T any](model *T, option other.MySQLOption) (list []T, total
 
 	// 应用分页查询
 	err = query.Order(option.Order).
-		Limit(option.PageSize). // 设置每页记录数
+		Limit(option.PageSize).                      // 设置每页记录数
 		Offset((option.Page - 1) * option.PageSize). // 设置偏移量，根据页码计算
-		Find(&list).Error // 执行查询，并将结果存入 list 中
+		Find(&list).Error                            // 执行查询，并将结果存入 list 中
 
 	return list, total, err // 返回分页结果和总记录数
 }
